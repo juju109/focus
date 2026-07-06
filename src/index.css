@@ -21,7 +21,8 @@ body{
 img,svg{display:block;}
 a{color:inherit; text-decoration:none;}
 button{font-family:var(--font);}
-.wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+/* 콘텐츠는 좌측 정렬로 시작 (배경 섹션은 full-bleed 유지). 큰 화면일수록 왼쪽 여백이 살짝 커지도록 clamp */
+.wrap{max-width:1080px; margin:0; padding:0 clamp(24px, 5vw, 96px);}
 
 /* ---------- reticle signature element ---------- */
 .reticle{width:1em; height:1em; display:inline-block; vertical-align:-0.12em;}
@@ -36,7 +37,7 @@ header.site{
 }
 .nav{
   display:flex; align-items:center; justify-content:space-between;
-  padding:14px 24px; max-width:1080px; margin:0 auto; gap:20px;
+  padding:14px clamp(24px, 5vw, 96px); margin:0; gap:20px;
 }
 .brand{display:flex; align-items:center; gap:10px; flex-shrink:0;}
 .brand .mark{

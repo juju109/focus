@@ -4,7 +4,9 @@ dist-ssr
 *.local
 .env
 .env.*
-!.env.example
+
+# 로컬 전용 (커밋하지 않음)
+CLAUDE.md
 
 # editor / os
 .DS_Store
