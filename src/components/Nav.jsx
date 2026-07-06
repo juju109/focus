@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { scrollToId } from '../scroll.js'
 
 const LINKS = [
@@ -9,6 +10,13 @@ const LINKS = [
 ]
 
 export default function Nav() {
+  const [open, setOpen] = useState(false)
+
+  const go = (id) => {
+    scrollToId(id)
+    setOpen(false)
+  }
+
   return (
     <header className="site">
       <div className="nav">
@@ -18,12 +26,28 @@ export default function Nav() {
           </div>
           <div className="name">포커스특공대</div>
         </div>
-        <nav className="nav-links">
+
+        <nav className={`nav-links${open ? ' open' : ''}`}>
           {LINKS.map((l) => (
-            <a key={l.id} onClick={() => scrollToId(l.id)}>{l.label}</a>
+            <a key={l.id} onClick={() => go(l.id)}>{l.label}</a>
           ))}
         </nav>
-        <button className="callbtn" onClick={() => scrollToId('contact')}>문의하기</button>
+
+        <div className="nav-right">
+          <button className="callbtn" onClick={() => go('contact')}>문의하기</button>
+          <button
+            className="nav-toggle"
+            aria-label="메뉴 열기"
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? (
+              <svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18" /><line x1="18" y1="6" x2="6" y2="18" /></svg>
+            ) : (
+              <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" /></svg>
+            )}
+          </button>
+        </div>
       </div>
     </header>
   )
