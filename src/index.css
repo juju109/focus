@@ -169,7 +169,8 @@ table.diff td.hi .mk{color:var(--red);}
 .about-block:last-child{margin-bottom:0;}
 .block-eyebrow{font-size:12px; font-weight:700; color:var(--red); letter-spacing:.16em; margin-bottom:8px;}
 .block-title{font-size:21px; font-weight:800; letter-spacing:-0.01em;}
-.block-p{font-size:14.5px; line-height:1.85; color:#333; margin-top:14px; max-width:680px;}
+/* max-width 제거: 문단 오른쪽 끝을 아래 비교표 폭과 일치시킴 */
+.block-p{font-size:14.5px; line-height:1.85; color:#333; margin-top:14px;}
 .block-p b{color:var(--red);}
 .about-block .diff-wrap{margin-top:26px;}
 .about-block .promise{margin-top:20px;}
