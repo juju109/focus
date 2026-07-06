@@ -1,6 +1,8 @@
 import InquiryForm from './InquiryForm.jsx'
 
-const PDF = `${import.meta.env.BASE_URL}포커스특공대_회사소개서.pdf`
+// 파일은 public/company-profile.pdf 에 두고, 다운로드 시 보이는 이름만 한글로 지정
+const PDF = `${import.meta.env.BASE_URL}company-profile.pdf`
+const PDF_NAME = '포커스특공대_회사소개서.pdf'
 
 export default function Contact() {
   return (
@@ -22,7 +24,7 @@ export default function Contact() {
                 <div className="dt1">회사소개서 (PDF)</div>
                 <div className="dt2">철학 · 조직 · 성과 · 서비스 요약</div>
               </div>
-              <a className="dbtn" href={PDF} download>다운로드</a>
+              <a className="dbtn" href={PDF} download={PDF_NAME}>다운로드</a>
             </div>
           </div>
 

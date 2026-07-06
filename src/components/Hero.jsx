@@ -1,6 +1,8 @@
 import { scrollToId } from '../scroll.js'
 
-const PDF = `${import.meta.env.BASE_URL}포커스특공대_회사소개서.pdf`
+// 파일은 public/company-profile.pdf 에 두고, 다운로드 시 보이는 이름만 한글로 지정
+const PDF = `${import.meta.env.BASE_URL}company-profile.pdf`
+const PDF_NAME = '포커스특공대_회사소개서.pdf'
 
 export default function Hero() {
   return (
@@ -13,7 +15,7 @@ export default function Hero() {
 
         <div className="hero-cta">
           <button className="btn-primary" onClick={() => scrollToId('contact')}>문의하기</button>
-          <a className="btn-outline" href={PDF} download>회사소개서 다운로드</a>
+          <a className="btn-outline" href={PDF} download={PDF_NAME}>회사소개서 다운로드</a>
         </div>
 
         <div className="stats">
