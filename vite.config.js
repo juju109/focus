@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// Project page served at https://juju109.github.io/focus/
+// Served at custom domain https://focus-agents.com/ (root path)
 export default defineConfig({
-  base: '/focus/',
+  base: '/',
   plugins: [react()],
 })
