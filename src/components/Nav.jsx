@@ -22,7 +22,7 @@ export default function Nav() {
       <div className="nav">
         <div className="brand">
           <div className="mark">
-            <svg className="reticle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><line x1="12" y1="1" x2="12" y2="6" /><line x1="12" y1="18" x2="12" y2="23" /><line x1="1" y1="12" x2="6" y2="12" /><line x1="18" y1="12" x2="23" y2="12" /><circle className="core" cx="12" cy="12" r="2.2" /></svg>
+            <img src={`${import.meta.env.BASE_URL}logo.jpg`} alt="포커스특공대 로고" />
           </div>
           <div className="name">포커스특공대</div>
         </div>
