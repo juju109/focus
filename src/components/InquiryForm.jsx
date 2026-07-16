@@ -25,7 +25,7 @@ export default function InquiryForm() {
     const body = encodeURIComponent(
       '회사명: ' + form.company + '\n' +
       '담당자명: ' + form.manager + '\n' +
-      '연락처: ' + form.contactInfo + '\n' +
+      '이메일: ' + form.contactInfo + '\n' +
       '월 예산 범위: ' + form.budget + '\n\n' +
       '의뢰 내용:\n' + form.detail
     )
@@ -74,8 +74,8 @@ export default function InquiryForm() {
           <input type="text" id="manager" name="manager" value={form.manager} onChange={update} required />
         </div>
         <div className="field">
-          <label htmlFor="contactInfo">연락처 (이메일 또는 연락 가능한 채널)</label>
-          <input type="text" id="contactInfo" name="contactInfo" value={form.contactInfo} onChange={update} required />
+          <label htmlFor="contactInfo">이메일</label>
+          <input type="email" id="contactInfo" name="contactInfo" placeholder="example@company.com" value={form.contactInfo} onChange={update} required />
         </div>
       </div>
       <div className="field">
