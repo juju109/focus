@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import emailjs from '@emailjs/browser'
+import PrivacyPolicy from './PrivacyPolicy.jsx'
 
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
@@ -11,13 +12,16 @@ const EMAILJS_ENABLED = Boolean(SERVICE_ID && TEMPLATE_ID && PUBLIC_KEY)
 
 const BUDGETS = ['300만원 미만', '300만원 ~ 1,000만원', '1,000만원 ~ 3,000만원', '3,000만원 이상']
 
-const EMPTY = { company: '', manager: '', contactInfo: '', budget: BUDGETS[0], detail: '' }
+const EMPTY = { company: '', manager: '', contactInfo: '', budget: BUDGETS[0], detail: '', agree: false }
 
 export default function InquiryForm() {
   const [form, setForm] = useState(EMPTY)
   const [status, setStatus] = useState('idle') // idle | sending | ok | err
 
-  const update = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }))
+  const update = (e) => {
+    const { name, type, value, checked } = e.target
+    setForm((f) => ({ ...f, [name]: type === 'checkbox' ? checked : value }))
+  }
 
   const openMailto = () => {
     const destination = CONTACT_EMAIL || 'REPLACE_WITH_EMAIL@example.com'
@@ -88,7 +92,14 @@ export default function InquiryForm() {
         <label htmlFor="detail">의뢰 내용</label>
         <textarea id="detail" name="detail" placeholder="브랜드 소개, 현재 광고 운영 현황, 원하시는 목표 등을 자유롭게 남겨주세요." value={form.detail} onChange={update}></textarea>
       </div>
-      <button type="submit" className="submit-btn" disabled={status === 'sending'}>
+      <div className="agree-field">
+        <label className="agree-label">
+          <input type="checkbox" name="agree" checked={form.agree} onChange={update} required />
+          <span>개인정보 수집 및 이용에 동의합니다 (필수)</span>
+        </label>
+        <PrivacyPolicy className="agree-link" label="개인정보처리방침 보기" />
+      </div>
+      <button type="submit" className="submit-btn" disabled={status === 'sending' || !form.agree}>
         {status === 'sending' ? '전송 중…' : '무료 상담 신청하기'}
       </button>
       {status === 'ok' && <div className="form-status ok">상담 신청이 접수되었습니다. 빠르게 연락드리겠습니다.</div>}
