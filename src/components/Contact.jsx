@@ -11,13 +11,12 @@ export default function Contact() {
         <div className="section-head">
           <div className="eyebrow-line">CONTACT</div>
           <h2 className="section-title">먼저, 무료 상담부터<br />편하게 받아보세요.</h2>
-          <p className="lead">"이 사람과 함께라면 매출이 오르겠다"는 확신이 드실 때, 그때 같이 시작하시면 됩니다.</p>
+          <p className="lead">성과는 없고, 소통도 안 되고, 예산만 소진하는 광고 집행에 지치셨다면 잘 찾아오셨습니다.</p>
         </div>
 
         <div className="contact-grid">
           <div className="contact-side">
-            <h3>바로 문의하기 부담스러우신가요?</h3>
-            <p>회사소개서를 먼저 받아보시고, 준비되셨을 때 편하게 연락 주세요.</p>
+            <h3>바로 문의하기 부담스럽다면 회사 소개서 먼저 받아보세요.</h3>
             <div className="download-card">
               <div className="dicon"><svg viewBox="0 0 24 24"><path d="M12 3v12" /><path d="M7 10l5 5 5-5" /><path d="M4 20h16" /></svg></div>
               <div className="dtext">

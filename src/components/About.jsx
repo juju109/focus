@@ -9,8 +9,8 @@ const Cross = () => (
 
 const DIFF_ROWS = [
   { label: '소재 제작', normal: '이미지 · 영상 건당 추가비', ours: '영상 포함 무제한 무료' },
-  { label: '제작 속도', normal: '기획 · 디자인 · 운영 간 지연', ours: '1인 통합 · 1~2일 내 투입' },
-  { label: '운영', normal: '다수 업체 기계적 관리', ours: '최대 5개 업체 밀착 케어' },
+  { label: '제작 속도', normal: '기획 · 디자인 · 운영 간 지연', ours: '1~2일 내 투입' },
+  { label: '운영', normal: '다수 업체 기계적 관리', ours: '소수 브랜드 밀착 케어' },
   { label: '모니터링', normal: '업무 시간 외 대응 부재', ours: '365일 대표 직접 모니터링' },
   { label: '리포트', normal: '월간 PPT 요약, 사후 확인만 가능', ours: '주간 실시간 대시보드로 투명 공유' },
 ]
@@ -46,9 +46,14 @@ export default function About() {
             <div className="about-block" id="philosophy">
               <div className="block-eyebrow">PHILOSOPHY</div>
               <h3 className="block-title">공장형 대행사와는 구조가 다릅니다.</h3>
-              <p className="block-p">1명의 마케터가 최대 5개 업체만 관리합니다. 담당 마케터가 수십 개의 계정을 동시에 돌리는 구조에서는 단순히 광고를 대행하는 역할밖에 할 수 없습니다. 저희는 1개의 브랜드라도 제대로 성장시켜 윈윈하는 구조를 만들기 위해, 시장조사부터 USP 발굴, 카피라이팅까지 최적의 효율을 찾는 데에만 집중합니다.</p>
-              <p className="block-p">또한 성과를 내기 위한 작업인 소재 제작에는 비용을 받지 않습니다. 저희는 자신 있는 업체만 운영해드리고 있으며, 소재 무료 제작은 그 선택에 대한 자신 있는 투자라고 생각합니다.</p>
-              <p className="block-p">소수의 업체만 핸들링하기 때문에, 계정 관리에서도 즉각적인 대응이 이루어질 수 있는 구조입니다.</p>
+              <p className="philosophy-quote">“진짜 성장을 위해, 마케터 1인당 소수의 브랜드만 맡습니다.”</p>
+              <p className="block-p">마케터 1명이 수십 개 계정을 돌리는 구조에서는 단순히 광고를 대행하는 역할밖에 할 수 없습니다.</p>
+              <p className="block-p">저희는 1개의 브랜드라도 제대로 '성장'시킵니다. 시장조사부터 USP 발굴, 카피라이팅까지 최적의 효율을 만드는 데만 집중합니다.</p>
+              <ul className="philosophy-list">
+                <li><b>소재 제작 비용 0원:</b> 저희는 자신 있는 업체만 운영해드리고 있으며, 소재 무료 제작은 그 선택에 대한 자신 있는 투자입니다.</li>
+                <li><b>압도적 소수 정예:</b> 소수의 업체만 핸들링하기 때문에, 계정 관리에서도 즉각적인 대응과 빠른 실행이 가능합니다.</li>
+              </ul>
+              <p className="block-p">확실하게 성과를 낼 수 있는 소수 브랜드와만 윈-윈합니다.</p>
 
               <div className="diff-wrap">
                 <table className="diff">
@@ -78,7 +83,7 @@ export default function About() {
               <p className="block-p">규모를 키우기 위한 원칙이 아니라, 소수의 브랜드를 제대로 키우기 위한 기준입니다.</p>
               <div className="value-grid">
                 {VALUES.map((v) => (
-                  <div className="value-card" key={v.n}>
+                  <div className={v.n === '04' ? 'value-card hl' : 'value-card'} key={v.n}>
                     <div className="vnum">{v.n}</div>
                     <h4>{v.h}</h4>
                     <p>{v.p}</p>

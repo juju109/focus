@@ -1,4 +1,4 @@
-const INDUSTRIES = ['뷰티', '소형가전', '다이어트 식품', '잡화', '식품 · 외식']
+const INDUSTRIES = ['뷰티', '다이어트', '생활가전', '의류 잡화', '식품', '여성 특화 제품']
 
 export default function Portfolio() {
   return (
@@ -7,10 +7,10 @@ export default function Portfolio() {
         <div className="section-head">
           <div className="eyebrow-line">PORTFOLIO</div>
           <h2 className="section-title">숫자로 증명한<br />성장입니다.</h2>
-          <p className="lead">"잘한다"는 말 대신, 문제 정의부터 성과까지의 과정을 그대로 보여드립니다.</p>
+          <p className="lead">카피 한 줄 바꾸고 매출이 폭발하는 이유, 저희는 알고 있습니다.</p>
         </div>
 
-        <div style={{ fontSize: '12.5px', fontWeight: 700, color: 'var(--muted)', letterSpacing: '.04em', marginBottom: '10px' }}>운영 경험 업종</div>
+        <div style={{ fontSize: '12.5px', fontWeight: 700, color: 'var(--muted)', letterSpacing: '.04em', marginBottom: '10px' }}>특화 업종</div>
         <div className="client-wall">
           {INDUSTRIES.map((i) => (
             <span className="client-pill" key={i}>{i}</span>
