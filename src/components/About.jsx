@@ -1,4 +1,3 @@
-import { scrollToId } from '../scroll.js'
 
 const Check = () => (
   <span className="mk"><svg viewBox="0 0 24 24"><polyline points="4,13 9,18 20,6" /></svg></span>
@@ -22,38 +21,42 @@ const VALUES = [
   { n: '04', h: '책임', p: '마케터가 자주 바뀌는 공장형 대행사의 방식이 아닙니다. 모든 업체는 대표 마케터가 처음부터 끝까지 주도하여 관리합니다.' },
 ]
 
-const DUTIES = ['시장 분석', '광고 소재 기획', '광고주 소통', '소재 컨펌', '영상 기획', '광고 계정 세팅 · 핸들링', '성과 분석 · 방향성 제시']
+const DUTIES = [
+  { n: '01', title: ['시장상황 및', '경쟁사 분석'], desc: ['데이터 기반 시장 진단으로', '정확한 전략 수립'] },
+  { n: '02', title: ['광고소재', '기획'], desc: ['타겟 반응을 이끄는', '크리에이티브 설계'] },
+  { n: '03', title: ['광고계정', '최적화'], desc: ['실시간 모니터링으로', '효율 극대화'] },
+  { n: '04', title: ['광고 타겟', '설정'], desc: ['핵심 고객군을 정밀하게', '겨냥한 세팅'] },
+  { n: '05', title: ['성과 분석 및', '방향성 제시'], desc: ['숫자 너머의 인사이트로', '다음 액션 제안'] },
+]
 
 export default function About() {
   return (
     <section id="about">
       <div className="wrap">
-        <div className="section-head">
+        <div className="section-head" data-reveal>
           <div className="eyebrow-line">ABOUT US</div>
           <h2 className="section-title">포커스특공대를 소개합니다.</h2>
-          <p className="lead">현장에서 쌓은 실무 경험을 바탕으로, 대표 1인이 소수의 브랜드에만 집중하는 밀착형 구조를 만들었습니다. 광고비를 늘리는 대행사가 아니라, 같은 광고비로 더 큰 성과를 만드는 대행사입니다.</p>
         </div>
 
         <div className="about-layout">
-          <aside className="about-nav">
-            <a onClick={() => scrollToId('philosophy')}>01. 철학</a>
-            <a onClick={() => scrollToId('values')}>02. 핵심가치</a>
-            <a onClick={() => scrollToId('organization')}>03. 조직구성</a>
-          </aside>
-
           <div className="about-content">
 
-            <div className="about-block" id="philosophy">
+            <div className="about-block" id="philosophy" data-reveal>
               <div className="block-eyebrow">PHILOSOPHY</div>
               <h3 className="block-title">공장형 대행사와는 구조가 다릅니다.</h3>
               <p className="philosophy-quote">“진짜 성장을 위해, 마케터 1인당 소수의 브랜드만 맡습니다.”</p>
               <p className="block-p">마케터 1명이 수십 개 계정을 돌리는 구조에서는 단순히 광고를 대행하는 역할밖에 할 수 없습니다.</p>
               <p className="block-p">저희는 1개의 브랜드라도 제대로 '성장'시킵니다. 시장조사부터 USP 발굴, 카피라이팅까지 최적의 효율을 만드는 데만 집중합니다.</p>
-              <ul className="philosophy-list">
-                <li><b>소재 제작 비용 0원:</b> 저희는 자신 있는 업체만 운영해드리고 있으며, 소재 무료 제작은 그 선택에 대한 자신 있는 투자입니다.</li>
-                <li><b>압도적 소수 정예:</b> 소수의 업체만 핸들링하기 때문에, 계정 관리에서도 즉각적인 대응과 빠른 실행이 가능합니다.</li>
-              </ul>
-              <p className="block-p">확실하게 성과를 낼 수 있는 소수 브랜드와만 윈-윈합니다.</p>
+              <div className="philosophy-points">
+                <div className="pp">
+                  <div className="pp-title">소재 제작 비용 <span className="pp-em">0원</span></div>
+                  <p className="pp-desc">저희는 자신 있는 업체만 운영해드리고 있으며, 소재 무료 제작은 그 선택에 대한 자신 있는 투자입니다.</p>
+                </div>
+                <div className="pp">
+                  <div className="pp-title">압도적 <span className="pp-em">소수 정예</span></div>
+                  <p className="pp-desc">소수의 업체만 핸들링하기 때문에, 계정 관리에서도 즉각적인 대응과 빠른 실행이 가능합니다.</p>
+                </div>
+              </div>
 
               <div className="diff-wrap">
                 <table className="diff">
@@ -77,11 +80,11 @@ export default function About() {
               </div>
             </div>
 
-            <div className="about-block" id="values">
+            <div className="about-block" id="values" data-reveal>
               <div className="block-eyebrow">VALUES</div>
               <h3 className="block-title">일하는 4가지 기준</h3>
               <p className="block-p">규모를 키우기 위한 원칙이 아니라, 소수의 브랜드를 제대로 키우기 위한 기준입니다.</p>
-              <div className="value-grid">
+              <div className="value-grid" data-stagger>
                 {VALUES.map((v) => (
                   <div className={v.n === '04' ? 'value-card hl' : 'value-card'} key={v.n}>
                     <div className="vnum">{v.n}</div>
@@ -95,10 +98,15 @@ export default function About() {
             <div className="about-block" id="organization">
               <div className="block-eyebrow">ORGANIZATION</div>
               <h3 className="block-title">대표 1인이 A부터 Z까지 책임집니다.</h3>
-              <p className="block-p">기획 따로, 디자인 따로, 운영 따로인 공장형 구조가 아닙니다. 시장 분석부터 성과 리포팅까지 한 사람이 맥락을 놓치지 않고 이어가기 때문에, 소재를 바꾸는 데 여러 팀을 거치며 며칠을 허비하는 일이 없습니다. 아래 7가지 업무를 모두 대표 1인이 직접 수행합니다.</p>
-              <div className="duties-wrap">
+              <p className="block-p">기획 따로, 디자인 따로, 운영 따로인 공장형 구조가 아닙니다. 내 브랜드의 담당자 한 명이 맥락을 놓치지 않고 이어가기 때문에, 소재를 바꾸는 데 여러 팀을 거치며 며칠을 허비하는 일이 없습니다.</p>
+
+              <div className="duty-cards" data-stagger>
                 {DUTIES.map((d) => (
-                  <div className="duty-circle" key={d}>{d}</div>
+                  <div className="duty-card" key={d.n}>
+                    <div className="dc-num">{d.n}</div>
+                    <div className="dc-title">{d.title[0]}<br />{d.title[1]}</div>
+                    <div className="dc-desc">{d.desc[0]}<br />{d.desc[1]}</div>
+                  </div>
                 ))}
               </div>
             </div>

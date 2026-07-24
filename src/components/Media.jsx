@@ -1,10 +1,12 @@
 export default function Media() {
   return (
-    <section className="media-section">
+    <section className="media-section" id="media">
       <div className="wrap">
-        <div className="eyebrow-line">MEDIA COVERAGE</div>
-        <h2 className="section-title" style={{ fontSize: '22px' }}>다루는 광고 매체</h2>
-        <div className="media-grid">
+        <div data-reveal>
+          <div className="eyebrow-line">MEDIA COVERAGE</div>
+          <h2 className="section-title" style={{ fontSize: '24px' }}>다루는 광고 매체</h2>
+        </div>
+        <div className="media-grid" data-stagger>
           <div className="media-card">
             <div className="micon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><line x1="21" y1="21" x2="16.5" y2="16.5" /></svg></div>
             <div className="mname">네이버 SA</div>

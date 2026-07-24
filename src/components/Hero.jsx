@@ -9,16 +9,16 @@ export default function Hero() {
     <section className="hero" id="home">
       <svg className="bigreticle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><line x1="12" y1="1" x2="12" y2="6" /><line x1="12" y1="18" x2="12" y2="23" /><line x1="1" y1="12" x2="6" y2="12" /><line x1="18" y1="12" x2="23" y2="12" /></svg>
       <div className="wrap">
-        <div className="eyebrow">소수정예 퍼포먼스 광고대행사</div>
-        <h1>소수의 업체만,<br /><span className="hl">대형 브랜드로</span> 키우는 Win-Win 구조</h1>
-        <p className="tagline">소수업체 밀착관리, 끝까지 함께하는 광고 파트너</p>
+        <div className="eyebrow" data-reveal>소수정예 퍼포먼스 광고대행사</div>
+        <h1 data-reveal>소수의 업체만,<br /><span className="hl">대형 브랜드로</span> 키우는 Win-Win 구조</h1>
+        <p className="tagline" data-reveal>소수업체 밀착관리, 끝까지 함께하는 광고 파트너</p>
 
-        <div className="hero-cta">
+        <div className="hero-cta" data-reveal>
           <button className="btn-primary" onClick={() => scrollToId('contact')}>문의하기</button>
           <a className="btn-outline" href={PDF} download={PDF_NAME}>회사소개서 다운로드</a>
         </div>
 
-        <div className="stats">
+        <div className="stats" data-stagger>
           <div className="stat">
             <div className="icon"><svg viewBox="0 0 24 24"><path d="M3 21h18" /><path d="M5 21V8l7-4 7 4v13" /><path d="M9 21v-6h6v6" /></svg></div>
             <div className="num">300개+</div><div className="cap">브랜드 업체<br />운영 경험</div>
@@ -33,6 +33,11 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      <button className="scroll-cue" onClick={() => scrollToId('media')} aria-label="아래로 스크롤">
+        <span className="sc-label">Scroll</span>
+        <svg viewBox="0 0 24 24"><polyline points="6,9 12,15 18,9" /></svg>
+      </button>
     </section>
   )
 }

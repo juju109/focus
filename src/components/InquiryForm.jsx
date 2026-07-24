@@ -12,7 +12,7 @@ const EMAILJS_ENABLED = Boolean(SERVICE_ID && TEMPLATE_ID && PUBLIC_KEY)
 
 const BUDGETS = ['300만원 미만', '300만원 ~ 1,000만원', '1,000만원 ~ 3,000만원', '3,000만원 이상']
 
-const EMPTY = { company: '', manager: '', contactInfo: '', budget: BUDGETS[0], detail: '', agree: false }
+const EMPTY = { company: '', product: '', manager: '', contactInfo: '', budget: BUDGETS[0], detail: '', agree: false }
 
 export default function InquiryForm() {
   const [form, setForm] = useState(EMPTY)
@@ -28,6 +28,7 @@ export default function InquiryForm() {
     const subject = encodeURIComponent('[상담신청] ' + form.company)
     const body = encodeURIComponent(
       '회사명: ' + form.company + '\n' +
+      '진행 상품: ' + form.product + '\n' +
       '담당자명: ' + form.manager + '\n' +
       '이메일: ' + form.contactInfo + '\n' +
       '월 예산 범위: ' + form.budget + '\n\n' +
@@ -51,6 +52,7 @@ export default function InquiryForm() {
         TEMPLATE_ID,
         {
           company: form.company,
+          product: form.product,
           manager: form.manager,
           contact_info: form.contactInfo,
           budget: form.budget,
@@ -67,10 +69,16 @@ export default function InquiryForm() {
   }
 
   return (
-    <form className="inquiry" onSubmit={handleSubmit}>
-      <div className="field">
-        <label htmlFor="company">회사명</label>
-        <input type="text" id="company" name="company" placeholder="예: 포커스특공대" value={form.company} onChange={update} required />
+    <form className="inquiry" onSubmit={handleSubmit} data-reveal>
+      <div className="field-row">
+        <div className="field">
+          <label htmlFor="company">회사명</label>
+          <input type="text" id="company" name="company" placeholder="예: 포커스특공대" value={form.company} onChange={update} required />
+        </div>
+        <div className="field">
+          <label htmlFor="product">진행 상품</label>
+          <input type="text" id="product" name="product" placeholder="예: 다이어트 보조제, 뷰티 디바이스 등" value={form.product} onChange={update} />
+        </div>
       </div>
       <div className="field-row">
         <div className="field">
@@ -104,9 +112,6 @@ export default function InquiryForm() {
       </button>
       {status === 'ok' && <div className="form-status ok">상담 신청이 접수되었습니다. 빠르게 연락드리겠습니다.</div>}
       {status === 'err' && <div className="form-status err">전송에 실패했습니다. 잠시 후 다시 시도해 주세요.</div>}
-      <div className="form-note">
-        {EMAILJS_ENABLED ? '제출 시 상담 신청이 바로 접수됩니다' : '제출 시 입력하신 이메일 클라이언트가 열립니다'}
-      </div>
     </form>
   )
 }

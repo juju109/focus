@@ -4,14 +4,14 @@ export default function Portfolio() {
   return (
     <section id="portfolio">
       <div className="wrap">
-        <div className="section-head">
+        <div className="section-head" data-reveal>
           <div className="eyebrow-line">PORTFOLIO</div>
-          <h2 className="section-title">숫자로 증명한<br />성장입니다.</h2>
+          <h2 className="section-title">숫자로 증명한 성장입니다.</h2>
           <p className="lead">카피 한 줄 바꾸고 매출이 폭발하는 이유, 저희는 알고 있습니다.</p>
         </div>
 
-        <div style={{ fontSize: '12.5px', fontWeight: 700, color: 'var(--muted)', letterSpacing: '.04em', marginBottom: '10px' }}>특화 업종</div>
-        <div className="client-wall">
+        <div style={{ fontSize: '14.5px', fontWeight: 700, color: 'var(--muted)', letterSpacing: '.04em', marginBottom: '10px' }}>특화 업종</div>
+        <div className="client-wall" data-stagger>
           {INDUSTRIES.map((i) => (
             <span className="client-pill" key={i}>{i}</span>
           ))}
@@ -19,7 +19,7 @@ export default function Portfolio() {
         </div>
 
         <div className="cases">
-          <div className="case">
+          <div className="case" data-reveal>
             <div className="tag">뷰티 · 스마트스토어</div>
             <div className="steps">
               <div className="s"><span className="k">문제</span>타 대행사 운영에도 ROAS 미달 지속</div>
@@ -32,7 +32,7 @@ export default function Portfolio() {
               <div className="bar-row"><span className="bar-label">이후</span><div className="bar-track"><div className="bar-fill after" style={{ width: '100%' }}></div></div></div>
             </div>
           </div>
-          <div className="case dark">
+          <div className="case" data-reveal>
             <div className="tag">소형 가전 · 스마트스토어 · <span className="strategy">영상 확장 전략</span></div>
             <div className="steps">
               <div className="s"><span className="k">문제</span>이미지 소재만으로는 확장 한계</div>
@@ -45,7 +45,7 @@ export default function Portfolio() {
               <div className="bar-row"><span className="bar-label">이후</span><div className="bar-track"><div className="bar-fill after" style={{ width: '100%' }}></div></div></div>
             </div>
           </div>
-          <div className="case">
+          <div className="case" data-reveal>
             <div className="tag">다이어트 식품 · 자사몰</div>
             <div className="steps">
               <div className="s"><span className="k">문제</span>까다로운 검수 카테고리로 매출 0원</div>
@@ -58,7 +58,7 @@ export default function Portfolio() {
               <div className="bar-row"><span className="bar-label">이후</span><div className="bar-track"><div className="bar-fill after" style={{ width: '100%' }}></div></div></div>
             </div>
           </div>
-          <div className="case">
+          <div className="case" data-reveal>
             <div className="tag">잡화 · 스마트스토어</div>
             <div className="steps">
               <div className="s"><span className="k">문제</span>낮은 소구력으로 정체된 실매출</div>

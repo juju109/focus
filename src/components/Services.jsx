@@ -2,13 +2,13 @@ export default function Services() {
   return (
     <section className="alt" id="services">
       <div className="wrap">
-        <div className="section-head">
+        <div className="section-head" data-reveal>
           <div className="eyebrow-line">SERVICES</div>
           <h2 className="section-title">제공하는 서비스</h2>
           <p className="lead">기획 · 제작 · 운영, 세 영역을 나누지 않고 한 흐름으로 진행합니다.</p>
         </div>
 
-        <div className="service-cards">
+        <div className="service-cards" data-stagger>
           <div className="service-card">
             <div className="sicon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" /><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8" /></svg></div>
             <h3>브랜딩 · 전략 기획</h3>
@@ -22,11 +22,11 @@ export default function Services() {
           <div className="service-card">
             <div className="sicon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="M10 9l5 3-5 3V9z" /></svg></div>
             <h3>영상 · 이미지 소재 제작</h3>
-            <p>카피, 이미지, 영상까지 대표가 직접 만듭니다. 성과 난 이미지는 곧바로 영상으로 확장합니다.</p>
+            <p>성과 난 이미지는 곧바로 영상으로 확장합니다.</p>
           </div>
         </div>
 
-        <div className="flow">
+        <div className="flow" data-stagger>
           <div className="flow-step">
             <span className="fnum">01</span>
             <span className="ficon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg></span>

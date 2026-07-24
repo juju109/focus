@@ -8,14 +8,16 @@ export default function Contact() {
   return (
     <section className="alt" id="contact">
       <div className="wrap">
-        <div className="section-head">
+        <div className="section-head" data-reveal>
           <div className="eyebrow-line">CONTACT</div>
-          <h2 className="section-title">먼저, 무료 상담부터<br />편하게 받아보세요.</h2>
+          <h2 className="section-title">먼저, 무료 상담부터 편하게 받아보세요.</h2>
           <p className="lead">성과는 없고, 소통도 안 되고, 예산만 소진하는 광고 집행에 지치셨다면 잘 찾아오셨습니다.</p>
         </div>
 
-        <div className="contact-grid">
-          <div className="contact-side">
+        <div className="contact-stack">
+          <InquiryForm />
+
+          <div className="contact-download" data-reveal>
             <h3>바로 문의하기 부담스럽다면 회사 소개서 먼저 받아보세요.</h3>
             <div className="download-card">
               <div className="dicon"><svg viewBox="0 0 24 24"><path d="M12 3v12" /><path d="M7 10l5 5 5-5" /><path d="M4 20h16" /></svg></div>
@@ -26,8 +28,6 @@ export default function Contact() {
               <a className="dbtn" href={PDF} download={PDF_NAME}>다운로드</a>
             </div>
           </div>
-
-          <InquiryForm />
         </div>
       </div>
     </section>
