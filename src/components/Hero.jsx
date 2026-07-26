@@ -1,4 +1,5 @@
 import { scrollToId } from '../scroll.js'
+import { STATS } from '../content.jsx'
 
 // 파일은 public/company-profile.pdf 에 두고, 다운로드 시 보이는 이름만 한글로 지정
 const PDF = `${import.meta.env.BASE_URL}company-profile.pdf`
@@ -19,18 +20,13 @@ export default function Hero() {
         </div>
 
         <div className="stats" data-stagger>
-          <div className="stat">
-            <div className="icon"><svg viewBox="0 0 24 24"><path d="M3 21h18" /><path d="M5 21V8l7-4 7 4v13" /><path d="M9 21v-6h6v6" /></svg></div>
-            <div className="num">300개+</div><div className="cap">브랜드 업체<br />운영 경험</div>
-          </div>
-          <div className="stat">
-            <div className="icon"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="14" height="12" rx="1" /><path d="M17 10l4-2v8l-4-2" /></svg></div>
-            <div className="num">주 5개+</div><div className="cap">신규 소재 제작<br />(요청 시 영상 1편)</div>
-          </div>
-          <div className="stat hi">
-            <div className="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M9 8h4a2.5 2.5 0 0 1 0 5H9m0 0h6m-6 0v3m0-8v-2" /></svg></div>
-            <div className="num">0원</div><div className="cap">이미지 · 영상<br />제작비</div>
-          </div>
+          {STATS.map((s) => (
+            <div className={s.hi ? 'stat hi' : 'stat'} key={s.num}>
+              <div className="icon">{s.icon}</div>
+              <div className="num">{s.num}</div>
+              <div className="cap">{s.cap[0]}<br />{s.cap[1]}</div>
+            </div>
+          ))}
         </div>
       </div>
 
