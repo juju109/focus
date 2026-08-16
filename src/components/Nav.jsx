@@ -9,6 +9,17 @@ const LINKS = [
   { id: 'contact', label: '문의' },
 ]
 
+const KAKAO = {
+  id: 'kakao',
+  label: '카카오톡 상담',
+  href: 'http://pf.kakao.com/_jeBGX/chat',
+  icon: (
+    <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+      <path d="M12 3.5C6.75 3.5 2.5 6.86 2.5 11c0 2.62 1.72 4.93 4.32 6.26-.19.71-.68 2.55-.78 2.95-.12.49.18.48.38.35.16-.1 2.53-1.72 3.56-2.42.66.1 1.34.15 2.02.15 5.25 0 9.5-3.36 9.5-7.29S17.25 3.5 12 3.5z" />
+    </svg>
+  ),
+}
+
 const SOCIAL_LINKS = [
   {
     id: 'youtube',
@@ -30,16 +41,7 @@ const SOCIAL_LINKS = [
       </svg>
     ),
   },
-  {
-    id: 'kakao',
-    label: '카카오톡 상담',
-    href: 'http://pf.kakao.com/_jeBGX/chat',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
-        <path d="M12 3.5C6.75 3.5 2.5 6.86 2.5 11c0 2.62 1.72 4.93 4.32 6.26-.19.71-.68 2.55-.78 2.95-.12.49.18.48.38.35.16-.1 2.53-1.72 3.56-2.42.66.1 1.34.15 2.02.15 5.25 0 9.5-3.36 9.5-7.29S17.25 3.5 12 3.5z" />
-      </svg>
-    ),
-  },
+  KAKAO,
 ]
 
 export default function Nav() {
@@ -96,6 +98,16 @@ export default function Nav() {
           </button>
         </div>
       </div>
+
+      <a
+        className="social-icon social-icon--kakao mobile-kakao-fab"
+        href={KAKAO.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={KAKAO.label}
+      >
+        {KAKAO.icon}
+      </a>
     </header>
   )
 }

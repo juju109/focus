@@ -12,7 +12,7 @@
   --font: 'Pretendard Variable', 'Pretendard', -apple-system, sans-serif;
 }
 *{box-sizing:border-box; margin:0; padding:0;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth; overflow-x:hidden;}
 body{
   font-family:var(--font);
   color:var(--ink);
@@ -386,7 +386,14 @@ footer{background:var(--black); color:#999; padding:40px 0 28px; border-top:1px 
 .social-icon--youtube svg{width:30px; height:30px;}
 .social-icon--blog{background:#fff; color:#03C75A; width:36px; height:36px;}
 .social-icon--blog svg{width:26px; height:26px;}
-@media(max-width:820px){ .social-links{display:none;} }
+.mobile-kakao-fab{display:none;}
+@media(max-width:820px){
+  .social-links{display:none;}
+  .mobile-kakao-fab{
+    display:flex; position:fixed; top:72px; right:14px; z-index:60;
+    box-shadow:0 2px 10px rgba(0,0,0,.25);
+  }
+}
 
 /* ---------- mobile nav (hamburger) ---------- */
 .nav-right{display:flex; align-items:center; gap:12px; flex-shrink:0;}
@@ -561,8 +568,11 @@ footer{background:var(--black); color:#999; padding:40px 0 28px; border-top:1px 
 .rc-dot{width:7px; height:7px; border-radius:50%; flex-shrink:0;}
 .rc-dot.cost{background:#3B82F6;}
 .rc-dot.roas{background:#22C55E; align-self:center;}
-.rc-label{color:var(--muted); font-weight:600;}
-.rc-val{margin-left:auto; font-weight:800; font-variant-numeric:tabular-nums;}
+.rc-label{
+  color:var(--muted); font-weight:600; min-width:0;
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+.rc-val{margin-left:auto; font-weight:800; font-variant-numeric:tabular-nums; flex-shrink:0;}
 .rc-val.cost{color:#2563EB;}
 .rc-val.roas{color:#16A34A; font-size:20px; font-weight:900; line-height:1; letter-spacing:-0.01em;}
 .result-note{text-align:center; margin-top:34px; font-size:17px; font-weight:700; color:var(--muted);}
@@ -570,6 +580,9 @@ footer{background:var(--black); color:#999; padding:40px 0 28px; border-top:1px 
   .result-grid{grid-template-columns:repeat(2,1fr); gap:10px;}
   .result-card{padding:14px 14px 15px;}
   .rc-label{font-size:13px;}
+  .rc-row{gap:5px; flex-wrap:wrap;}
+  .rc-val.cost{font-size:13px;}
+  .rc-val.roas{font-size:16.5px;}
   .result-note{font-size:16px;}
 }
 
