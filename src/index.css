@@ -371,6 +371,23 @@ footer{background:var(--black); color:#999; padding:40px 0 28px; border-top:1px 
   .privacy-modal{max-width:100%; max-height:100vh; height:100vh; border-radius:0;}
 }
 
+/* ---------- nav social icons ---------- */
+.social-links{display:flex; align-items:center; gap:8px;}
+.social-icon{
+  width:32px; height:32px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  transition:filter .2s ease, transform .2s ease;
+}
+.social-icon svg{width:18px; height:18px;}
+.social-icon:hover{filter:brightness(1.08); transform:translateY(-1px);}
+.social-icon--kakao{background:#FEE500; color:#391B1B; width:34px; height:34px;}
+.social-icon--kakao svg{width:23px; height:23px;}
+.social-icon--youtube{background:#FF0000; color:#fff; width:36px; height:36px;}
+.social-icon--youtube svg{width:30px; height:30px;}
+.social-icon--blog{background:#fff; color:#03C75A; width:36px; height:36px;}
+.social-icon--blog svg{width:26px; height:26px;}
+@media(max-width:820px){ .social-links{display:none;} }
+
 /* ---------- mobile nav (hamburger) ---------- */
 .nav-right{display:flex; align-items:center; gap:12px; flex-shrink:0;}
 .nav-toggle{

@@ -9,6 +9,39 @@ const LINKS = [
   { id: 'contact', label: '문의' },
 ]
 
+const SOCIAL_LINKS = [
+  {
+    id: 'youtube',
+    label: '유튜브',
+    href: 'https://www.youtube.com/channel/UCLLYnyMbOATla9WD1WgFHOw',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+        <path d="M9.8 15.3V8.7L15.8 12l-6 3.3z" />
+      </svg>
+    ),
+  },
+  {
+    id: 'blog',
+    label: '네이버 블로그',
+    href: 'https://blog.naver.com/mbx109',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+        <text x="12" y="16" textAnchor="middle" fontSize="11" fontWeight="800" fontFamily="Arial, Helvetica, sans-serif" letterSpacing="-0.5">blog</text>
+      </svg>
+    ),
+  },
+  {
+    id: 'kakao',
+    label: '카카오톡 상담',
+    href: 'http://pf.kakao.com/_jeBGX/chat',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+        <path d="M12 3.5C6.75 3.5 2.5 6.86 2.5 11c0 2.62 1.72 4.93 4.32 6.26-.19.71-.68 2.55-.78 2.95-.12.49.18.48.38.35.16-.1 2.53-1.72 3.56-2.42.66.1 1.34.15 2.02.15 5.25 0 9.5-3.36 9.5-7.29S17.25 3.5 12 3.5z" />
+      </svg>
+    ),
+  },
+]
+
 export default function Nav() {
   const [open, setOpen] = useState(false)
 
@@ -34,6 +67,20 @@ export default function Nav() {
         </nav>
 
         <div className="nav-right">
+          <div className="social-links">
+            {SOCIAL_LINKS.map((s) => (
+              <a
+                key={s.id}
+                className={`social-icon social-icon--${s.id}`}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+              >
+                {s.icon}
+              </a>
+            ))}
+          </div>
           <button className="callbtn" onClick={() => go('contact')}>문의하기</button>
           <button
             className="nav-toggle"
