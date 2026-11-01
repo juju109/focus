@@ -12,7 +12,7 @@ const EMAILJS_ENABLED = Boolean(SERVICE_ID && TEMPLATE_ID && PUBLIC_KEY)
 
 const BUDGETS = ['300만원 미만', '300만원 ~ 1,000만원', '1,000만원 ~ 3,000만원', '3,000만원 이상']
 
-const EMPTY = { company: '', product: '', manager: '', contactInfo: '', budget: BUDGETS[0], detail: '', agree: false }
+const EMPTY = { company: '', product: '', manager: '', contactInfo: '', phone: '', budget: BUDGETS[0], detail: '', agree: false }
 
 export default function InquiryForm() {
   const [form, setForm] = useState(EMPTY)
@@ -31,6 +31,7 @@ export default function InquiryForm() {
       '진행 상품: ' + form.product + '\n' +
       '담당자명: ' + form.manager + '\n' +
       '이메일: ' + form.contactInfo + '\n' +
+      '핸드폰 번호: ' + form.phone + '\n' +
       '월 예산 범위: ' + form.budget + '\n\n' +
       '의뢰 내용:\n' + form.detail
     )
@@ -55,6 +56,7 @@ export default function InquiryForm() {
           product: form.product,
           manager: form.manager,
           contact_info: form.contactInfo,
+          phone: form.phone,
           budget: form.budget,
           detail: form.detail,
         },
@@ -86,15 +88,21 @@ export default function InquiryForm() {
           <input type="text" id="manager" name="manager" value={form.manager} onChange={update} required />
         </div>
         <div className="field">
+          <label htmlFor="budget">월 예산 범위</label>
+          <select id="budget" name="budget" value={form.budget} onChange={update}>
+            {BUDGETS.map((b) => <option key={b}>{b}</option>)}
+          </select>
+        </div>
+      </div>
+      <div className="field-row">
+        <div className="field">
           <label htmlFor="contactInfo">이메일</label>
           <input type="email" id="contactInfo" name="contactInfo" placeholder="example@company.com" value={form.contactInfo} onChange={update} required />
         </div>
-      </div>
-      <div className="field">
-        <label htmlFor="budget">월 예산 범위</label>
-        <select id="budget" name="budget" value={form.budget} onChange={update}>
-          {BUDGETS.map((b) => <option key={b}>{b}</option>)}
-        </select>
+        <div className="field">
+          <label htmlFor="phone">핸드폰 번호</label>
+          <input type="tel" id="phone" name="phone" inputMode="tel" autoComplete="tel" placeholder="010-1234-5678" pattern="01[0-9]-?[0-9]{3,4}-?[0-9]{4}" title="예: 010-1234-5678" value={form.phone} onChange={update} required />
+        </div>
       </div>
       <div className="field">
         <label htmlFor="detail">의뢰 내용</label>
